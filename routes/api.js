@@ -8,6 +8,7 @@ const url = 'mongodb://localhost:27017';
 const dbName = 'developers';
 
 MongoClient.connect(url, function(err, client) {
+  
   if (err) {
     return console.log(err);
   }
@@ -16,6 +17,7 @@ MongoClient.connect(url, function(err, client) {
 
   //GET request handler
   router.get('/developers/:name', (req, res) => {
+    
     const { name } = req.params;
 
     db
@@ -37,6 +39,7 @@ MongoClient.connect(url, function(err, client) {
 
   //POST request handler
   router.post('/developers/:name-:age', (req, res) => {
+  
     const { name, age } = req.params;
 
     db
@@ -54,10 +57,12 @@ MongoClient.connect(url, function(err, client) {
       .catch(err => {
         res.send(`An error occured and here is it\n${err}\n`);
       });
+  
   });
 
   //PUT request handler
   router.put('/developers/:name-:age', (req, res) => {
+  
     const { name, age } = req.params;
 
     db
@@ -75,10 +80,12 @@ MongoClient.connect(url, function(err, client) {
       .catch(err => {
         res.send(`An error occured and here is it\n${err}\n`);
       });
+  
   });
 
   //DELETE request handler
   router.delete('/developers/:name', (req, res) => {
+  
     const { name, age } = req.params;
 
     db
@@ -96,6 +103,7 @@ MongoClient.connect(url, function(err, client) {
       .catch(err => {
         res.send(`An error occured and here is it\n${err}\n`);
       });
+  
   });
 });
 
